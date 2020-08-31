@@ -12,8 +12,8 @@ interface Appointment{
 
 const appointments: Appointment [] = [];
 appointmentsRouter.post('/', (request, response) =>{
-    return response.json({message: 'Hello world'});
-    
+   
+
     const {provider,date} =  request.body;
 
     const parseDate = startOfHour(parseISO(date));
