@@ -398,3 +398,5 @@ Icon
 .history
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,reactnative,react,macos
+temp/*
+!temp/.gitkeep
