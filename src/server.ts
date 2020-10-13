@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 import express,{Request, Response, NextFunction} from 'express';
+import cors from 'cors';
 import 'express-async-errors';
 import routes from './routes';
 import uploadConfig from'./config/upload';
-import cors from 'cors';
 
 import './database';
 import AppError from './errors/AppError';
@@ -19,7 +19,7 @@ app.use(
    (err: Error, request: Request, response: Response, next: NextFunction) => {
 if (err instanceof AppError){
     return response.status(err.statusCode).json({
-        status: 'error',
+        status: 'Error',
         message: err.message,
     })
 }
