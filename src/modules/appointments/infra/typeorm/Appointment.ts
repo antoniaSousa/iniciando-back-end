@@ -6,14 +6,14 @@ import { Entity,
     ManyToOne,
     JoinColumn } from 'typeorm';
 
-import User from './User'
+import User from '../../../users/infra/typeorm/User'
 
 @Entity('appointments')
 class Appointment {
 
     @PrimaryGeneratedColumn('uuid')
     id: String;
-    
+
     @Column()
     provider_id: String;
 
