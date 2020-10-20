@@ -1,6 +1,6 @@
 import { EntityRepository, Repository, Entity } from 'typeorm';
 
-import Appointment from '../infra/typeorm/Appointment';
+import Appointment from '../infra/typeorm/entities/Appointment';
 
 @EntityRepository(Appointment)
 class AppointmentsRepository extends Repository <Appointment>{
