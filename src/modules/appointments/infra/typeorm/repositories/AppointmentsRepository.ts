@@ -1,0 +1,19 @@
+import { EntityRepository, Repository, Entity } from 'typeorm';
+import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
+import Appointment from '../entities/Appointment';
+
+// SOLID
+// Liskov Substitution Principle
+@EntityRepository(Appointment)
+class AppointmentsRepository extends Repository <Appointment>
+implements IAppointmentsRepository{
+    public  async findByDate(date: Date): Promise<Appointment | undefined>{
+        const findAppointment = await this.findOne({
+            where: { date },
+        });
+
+        return findAppointment || undefined;
+    }
+
+    }
+export default AppointmentsRepository;
