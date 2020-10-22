@@ -1,7 +1,6 @@
 import { EntityRepository, Repository, Entity } from 'typeorm';
-import IAppontmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
 
-import Appointment from '../entities/Appointment;
+import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
 
 class AppointmentsRepository extends Repository <Appointment>{
     public  async findByDate(date: Date): Promise<Appointment | undefined>{
@@ -9,7 +8,7 @@ class AppointmentsRepository extends Repository <Appointment>{
             where: { date },
         });
 
-        return findAppointment || null;
+        return findAppointment || undefined;
     }
 
     }
