@@ -8,17 +8,17 @@ import authConfig from '@config/auth';
 import AppError from '@shared/errors/AppError';
 
 
-interface Request {
+interface IRequest {
     email: string;
     password: string;
 }
 
-interface Response {
+interface IResponse {
     user: User;
     token: string;
 }
 class AuthenticateUserServive {
-public async execute({ email, password }: Request): Promise<Response>{
+public async execute({ email, password }: IRequest): Promise<Response>{
     const userRepository = getRepository(User);
 
 
