@@ -1,5 +1,4 @@
 import {Router} from 'express';
-import { parseISO} from 'date-fns';
 
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
 import AppointmentsController from '../http/controllers/AppointmentsController';

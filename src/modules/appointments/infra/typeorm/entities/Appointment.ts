@@ -12,10 +12,10 @@ import User from '@modules/users/infra/typeorm/entities/User';
 class Appointment {
 
     @PrimaryGeneratedColumn('uuid')
-    id: String;
+    id: string;
 
     @Column()
-    provider_id: String;
+    provider_id: string;
 
     @ManyToOne(()=>User)
     @JoinColumn({name: 'provider_id'})

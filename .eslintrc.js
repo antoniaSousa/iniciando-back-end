@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "extends": [
         "eslint:recommended",
@@ -32,6 +33,7 @@ module.exports = {
     "rules": {
         "prettier/prettier": "error",
         "react-hooks/rules-of-hooks": "error",
+        "no_useles-constructor": "off",
         "react-hooks/exhaustive-deps": "warn",
         "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
         "import/prefer-default-export": "off",
