@@ -28,26 +28,24 @@ describe('UpdateUserAvatar', () => {
   expect(user.avatar).toBe('avatar.jpg');
 
   it('should de  able to update avatar from non existing', async () => {
-    const fakesUserRepository = new FakesUsersRepository();
-    const fakeStorageProvider = new FakeStorageProvider();
 
-    const updateUserAvatar = new UpdateUserAvataService(
-        fakesUserRepository,
-        fakeStorageProvider,
-        );
-
-expect(updateUserAvatar.execute({
+ await expect(updateUserAvatar.execute({
     user_id: 'non-existing-user',
     avatarFilename: 'avatar.jpg',
 
 })).rejects.toBeInstanceOf(AppError);
 
-
+  });
     it('should delete old avatar when updating new one', async () => {
         const fakesUserRepository = new FakesUsersRepository();
         const fakeStorageProvider = new FakeStorageProvider();
 
-        const deleteFile = jest.spyOn(FakeStorageProvider, 'deleteFile');
+        const deleteFile = jest.spyOn(fakeStorageProvider,'deleteFile');
+
+        const updateUserAvatar = new UpdateUserAvataService(
+            fakesUserRepository,
+            fakeStorageProvider,
+        );
 
         const user = await fakesUserRepository.create({
           name: 'John Doe',
@@ -66,6 +64,7 @@ expect(updateUserAvatar.execute({
         });
 
         expect(deleteFile).toHaveBeenCalledWith('avatar.jpg');
-        expect(user.avatar).toBe('avatar2.jpg');
+       });
+       expect(user.avatar).toBe('avatar2.jpg');
 });
-    });
+});

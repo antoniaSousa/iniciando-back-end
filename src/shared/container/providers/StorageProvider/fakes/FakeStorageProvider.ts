@@ -16,4 +16,4 @@ this.storage.splice(findIndex, 1);
 
 }
 }
-export default FakeSorageProvider;
+export default FakeStorageProvider;
