@@ -8,7 +8,7 @@ import routes from '../routes';
 
 
 import '@shared/infra/typeorm/entities';
-import '@shared/container';
+import '@shared/container/providers/StorageProvider';
 const app = express();
 
 app.use(cors());
