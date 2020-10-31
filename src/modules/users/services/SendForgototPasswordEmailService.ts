@@ -11,7 +11,7 @@ interface IRequest{
 
 }
 
-class SendForgototPasswordEmailServicervice{
+class SendForgototPasswordEmailService{
      constructor(
          @inject('UsersRepository')
          private usersRepository: IUsersRepository,
@@ -41,4 +41,4 @@ class SendForgototPasswordEmailServicervice{
     }
 }
 
-export default SendForgototPasswordEmailServicervice;
+export default SendForgototPasswordEmailService;
