@@ -3,6 +3,7 @@ import AppError from '@shared/errors/AppError';
 import FakesUsersRepository from '../repositories/Fakes/FakesUsersRepository';
 import FakeUserTokenRepository from '../repositories/Fakes/FakeUserTokenRepository';
 import SendForgotPasswordEmailService from './SendForgototPasswordEmailService';
+
 let fakesUserRepository: FakesUsersRepository;
 let fakeUsersTokenRepository: FakeUserTokenRepository;
 let fakeMailProvider: FakeMailProvider;

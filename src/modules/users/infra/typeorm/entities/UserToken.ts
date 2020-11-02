@@ -3,7 +3,6 @@ import { Entity,
     PrimaryGeneratedColumn,
     CreateDateColumn, UpdateDateColumn, Generated }
     from 'typeorm';
-import { uuid } from 'uuidv4';
 
 @Entity('user_tokens')
 class UserToken {
