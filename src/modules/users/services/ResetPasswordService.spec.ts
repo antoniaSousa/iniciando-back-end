@@ -12,7 +12,7 @@ let resetPassword: ResetPasswordService;
 
 describe('ResetPasswordService', () => {
     beforeEach(() => {
-        let  fakesUsersRepository = new FakesUsersRepository();
+        fakesUsersRepository = new FakesUsersRepository();
         fakeUserTokenRepository = new FakeUserTokenRepository();
         fakeHashProvider = new FakeHashProvider();
 

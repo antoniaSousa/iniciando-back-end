@@ -11,14 +11,14 @@ let sendForgotPasswordEmail: SendForgotPasswordEmailService;
 
 describe('SendForgotPasswordEmail', ()=>{
     beforeEach(()=>{
-      const fakesUserRepository = new FakesUsersRepository();
-      const fakeMailProvider = new FakeMailProvider();
-      const fakeUserTokenRepository = new FakeUserTokenRepository();
+       fakesUserRepository = new FakesUsersRepository();
+       fakeMailProvider = new FakeMailProvider();
+       fakeUsersTokenRepository = new FakeUserTokenRepository();
 
-      const sendForgotPasswordEmail = new SendForgotPasswordEmailService(
+          sendForgotPasswordEmail = new SendForgotPasswordEmailService(
           fakesUserRepository,
           fakeMailProvider,
-          fakeUserTokenRepository,
+          fakeUsersTokenRepository,
       );
     });
     it('should de  able to recover using the email', async () => {
