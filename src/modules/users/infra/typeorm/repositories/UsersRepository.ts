@@ -11,6 +11,9 @@ class UsersRepository implements IUsersRepository{
         this.ormRepository = getRepository(User);
 
     }
+    findAllProviders(data: IFindAllProvidersDTO): Promise<User[]> {
+        throw new Error('Method not implemented.');
+    }
 
     public async findById(id: string): Promise<User | undefined>{
         const user = await this.ormRepository.findOne(id);
@@ -23,14 +26,15 @@ class UsersRepository implements IUsersRepository{
         });
         return user;
     }
-    public async findAllProvider({except_user_id,}:IFindAllProvidersDTO): Promise<User[]>{
+    public async findAllProvider({
+        except_user_id,}:IFindAllProvidersDTO): Promise<User[]>{
         let users: User[];
         if (except_user_id){
            users = await this.ormRepository.find({
                 where: {
                     id: Not(except_user_id),
                 }
-            })
+            });
         }else {
             users = await this.ormRepository.find();
         }
