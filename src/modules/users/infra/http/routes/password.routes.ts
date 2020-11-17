@@ -22,10 +22,9 @@ celebrate({
         token: Joi.string().uuid().required(),
         password: Joi.string().required(),
         password_confirmation: Joi.string().required().valid(Joi.ref('password')),
-    },
+    }
 }),
 resetPassworController.create);
-
 
 
 export default passwordRouter;
