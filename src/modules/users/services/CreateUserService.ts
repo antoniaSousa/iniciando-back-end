@@ -3,6 +3,7 @@ import AppError from '@shared/errors/AppError';
 import IUsersRepository from '../repositories/IUsersRepository';
 import {inject, injectable} from 'tsyringe';
 import IHashProvider from '../provider/HashProvider/models/IHashProvider';
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 
 
 interface IRequest{
@@ -18,10 +19,13 @@ class CreateUserService{
 
          @inject('HashProvider')
          private hashProvider: IHashProvider,
+
+         @inject('CacheProvider')
+         private cacheProvider: ICacheProvider,
          ){}
     public async execute({ name, email, password }: IRequest): Promise<User>{
     const checkUserExists = await this.usersRepository.findByEmail(email);
-    
+
         if (checkUserExists){
             throw new AppError('Email addres already used', 401);
         }
@@ -32,6 +36,8 @@ class CreateUserService{
             email,
             password: hashedPassword,
         });
+
+        await this.cacheProvider.invalidatePrefix('provider-list')
         return user;
     }
 }
