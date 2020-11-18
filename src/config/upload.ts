@@ -2,8 +2,6 @@
 import path from 'path';
 import crypto from 'crypto';
 import multer, {StorageEngine} from 'multer';
-import { StringForNextToken } from 'aws-sdk/clients/s3control';
-import { string } from '@hapi/joi';
 const tmpFolder = path.resolve(__dirname,'..','..', 'tmp' );
 
 interface IUploadConfig {

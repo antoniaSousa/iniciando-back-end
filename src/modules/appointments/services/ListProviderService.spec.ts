@@ -1,15 +1,21 @@
 
 import FakesUsersRepository from '@modules/users/repositories/Fakes/FakesUsersRepository';
 import ListProvidersService from './ListProviderService';
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
+
 
 
 let fakesUserRepository: FakesUsersRepository;
 let listProvider: ListProvidersService;
+let fakeCacheProvider: FakeCacheProvider;
 
 describe('ListProvider', () => {
     beforeEach(()=>{
         fakesUserRepository = new FakesUsersRepository();
-        listProvider = new ListProvidersService(fakesUserRepository);
+        fakeCacheProvider = new FakeCacheProvider();
+        listProvider = new ListProvidersService(
+            fakesUserRepository,
+            fakeCacheProvider);
     });
 
     it('should be  able show to list providers', async ()=>{

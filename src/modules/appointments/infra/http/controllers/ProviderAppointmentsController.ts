@@ -19,6 +19,5 @@ export default class ProviderAppointmentController{
           });
 
         return response.json({appointments});
-
     }
 }

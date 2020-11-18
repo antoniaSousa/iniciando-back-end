@@ -4,9 +4,6 @@ import ICreateAppointmentDTO from '@modules/appointments/dtos/ICreateAppointment
 import Appointment from '../entities/Appointment';
 import IFindAllInMonthFromProviderDTO from '@modules/appointments/dtos/IFindAlInMonthFromProviderDTO';
 import IFindAllInDayFromProviderDTO from '@modules/appointments/dtos/IFindAlInDayFromProviderDTO';
-
-
-
 class AppointmentsRepository implements IAppointmentsRepository{
     private ormRepository: Repository<Appointment>;
 
@@ -24,7 +21,6 @@ class AppointmentsRepository implements IAppointmentsRepository{
 
         return findAppointment;
     }
-
     public async findAllInMonthFromProvider({
         provider_id,
         month,
@@ -40,8 +36,6 @@ class AppointmentsRepository implements IAppointmentsRepository{
               ),
           }
       });
-
-
         return appointments;
     }
 
@@ -62,8 +56,6 @@ class AppointmentsRepository implements IAppointmentsRepository{
               ),
           }
       });
-
-
         return appointments;
     }
     public async create({

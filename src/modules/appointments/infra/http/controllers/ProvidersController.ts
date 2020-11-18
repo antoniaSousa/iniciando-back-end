@@ -13,6 +13,5 @@ export default class ProvidersController{
            user_id,
         });
         return response.json(providers);
-
     }
 }

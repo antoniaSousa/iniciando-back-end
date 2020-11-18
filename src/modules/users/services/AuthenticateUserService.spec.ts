@@ -14,11 +14,6 @@ describe('AuthenticateUser', ()=>{
         fakesUserRepository = new FakesUsersRepository();
         fakeHasProvider = new FakeHasProvider();
 
-        createUser = new CreateUserService(
-        fakesUserRepository,
-        fakeHasProvider,
-        );
-
         authenticateUser = new AuthenticateUserService(
             fakesUserRepository,
             fakeHasProvider,
@@ -48,12 +43,11 @@ describe('AuthenticateUser', ()=>{
       });
 
       it('should not be able to authencate with wrong password', async ()=>{
-
-        await createUser.execute({
-         name: 'John Doe',
-         email: 'john@exemplo.com',
-         password: '12345'
-        });
+        await fakesUserRepository.create({
+            name: 'John Doe',
+            email: 'john@exemplo.com',
+            password: '12345'
+           });
 
        await expect(authenticateUser.execute({
             email: 'john@exemplo.com',
