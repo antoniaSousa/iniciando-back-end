@@ -13,7 +13,6 @@ export default class UsersControllers{
             email,
             password,
         });
-
        return response.json(classToClass(user));
 
 

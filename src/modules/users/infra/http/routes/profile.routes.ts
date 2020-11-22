@@ -23,5 +23,4 @@ celebrate({
 }),
 profileController.update);
 
-
-export default usersRouter;
+export default profileRouter;
