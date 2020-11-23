@@ -62,5 +62,5 @@ public async findAllInDayFromProvider({
 
 
 }
-    }
+}
 export default AppointmentsRepository;

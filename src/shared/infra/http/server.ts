@@ -12,6 +12,7 @@ import routes from './routes';
 
 import '@shared/infra/typeorm';
 import '@shared/container/providers/StorageProvider';
+
 const app = express();
 
 app.use(cors());

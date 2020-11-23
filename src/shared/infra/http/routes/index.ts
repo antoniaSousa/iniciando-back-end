@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import appointmentsRouter from '@modules/appointments/infra/http/appointments.routes';
+import appointmentsRouter from '@modules/appointments/infra/http/routes/appointments.routes';
 import providersRouter from '@modules/appointments/infra/http/routes/providers.routes';
 import usersRouter from '@modules/users/infra/http/routes/users.routes';
 import sessionsRouter from '@modules/users/infra/http/routes/sessions.routes';
@@ -15,5 +15,4 @@ routes.use('/sessions', sessionsRouter);
 routes.use('/password', passwordRouter);
 routes.use('/profile', passwordRouter);
 routes.use('/profile', profileRouter);
-
 export default routes;

@@ -1,20 +1,15 @@
 import {getRepository, Not, Repository } from 'typeorm';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO';
-import User from '../entities/User';
 import IFindAllProvidersDTO from '@modules/users/dtos/IFindAllProvidersDTO';
+import User from '../entities/User';
 
 class UsersRepository implements IUsersRepository{
     private ormRepository: Repository<User>;
 
     constructor(){
         this.ormRepository = getRepository(User);
-
     }
-    findAllProviders(data: IFindAllProvidersDTO): Promise<User[]> {
-        throw new Error('Method not implemented.');
-    }
-
     public async findById(id: string): Promise<User | undefined>{
         const user = await this.ormRepository.findOne(id);
         return user;
@@ -22,13 +17,14 @@ class UsersRepository implements IUsersRepository{
 
     public async findByEmail(email: string): Promise<User | undefined>{
         const user = await this.ormRepository.findOne({
-            where: {email},
+            where: { email },
         });
         return user;
     }
-    public async findAllProvider({
+    public async findAllProviders({
         except_user_id,}:IFindAllProvidersDTO): Promise<User[]>{
         let users: User[];
+
         if (except_user_id){
            users = await this.ormRepository.find({
                 where: {

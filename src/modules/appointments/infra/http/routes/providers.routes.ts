@@ -4,7 +4,7 @@ import {celebrate, Segments, Joi} from 'celebrate';
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
 import ProvidersController from '../controllers/ProvidersController';
 import ProviderMonthAvailabilityController from '../controllers/ProviderMonthAvailabilityController';
-import ProviderDayAvailabilityController from '../controllers/ProviderDayAvailabilityController copy';
+import ProviderDayAvailabilityController from '../controllers/ProviderDayAvailabilityController';
 
 
 const providersRouter = Router();
