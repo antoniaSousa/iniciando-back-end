@@ -1,10 +1,10 @@
 import { startOfHour, isBefore, getHours, format } from 'date-fns';
 import { injectable, inject } from 'tsyringe';
+import INotificationRepository from '@modules/notifications/repositories/INotificationsRepository';
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import Appointment from '../infra/typeorm/entities/Appointment';
 import AppError from '@shared/errors/AppError';
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
-import INotificationRepository from '@modules/notifications/repositories/INotificationRepository';
-import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import { ptBR } from 'date-fns/locale';
 
 interface IRequest {
@@ -18,8 +18,8 @@ class CreateAppointmentService{
         @inject('AppointmentsRepository')
         private appointmentsRepository: IAppointmentsRepository,
 
-        @inject('NotificationRepository')
-        private notificationRepository: INotificationRepository,
+        @inject('NotificationsRepository')
+        private notificationsRepository: INotificationRepository,
 
         @inject('CacheProvider')
         private cacheProvider: ICacheProvider,
@@ -53,6 +53,7 @@ class CreateAppointmentService{
            throw new AppError('This appointment is already booked');
         }
 
+
         const appointment = await this.appointmentsRepository.create({
             provider_id,
             user_id,
@@ -60,8 +61,7 @@ class CreateAppointmentService{
         });
         const dateFormatted = format(appointmentDate, "dd/MM,yyyy  'às' HH: mm",
         { locale: ptBR},);
-
-        await this.notificationRepository.create({
+        await this.notificationsRepository.create({
             recipient_id: provider_id,
             content: `Novo agendamento para dia ${dateFormatted}`,
         });

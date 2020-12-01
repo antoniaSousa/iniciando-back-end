@@ -1,13 +1,13 @@
 [
-    {
+    {   "name": "default",
         "type": "postgres",
-          "host": "localhost",
+        "host": "localhost",
         "port": 5434,
         "username": "postgres",
         "password": "docker",
         "database": "gostack-postgres",
         "entities": [
-            "./src/modules/infra/typeorm/entities/*.ts"
+            "./src/modules/**/infra/typeorm/entities/*.ts"
         ],
         "migrations": [
             "./src/shared/infra/typeorm/migrations/*.ts"

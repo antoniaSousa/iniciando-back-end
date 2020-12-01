@@ -3,7 +3,6 @@ import uploadConfig from '@config/upload';
 import {Exclude, Expose} from 'class-transformer';
 @Entity('users')
 class Users {
-
     @PrimaryGeneratedColumn('uuid')
     id: string;
     @Column()

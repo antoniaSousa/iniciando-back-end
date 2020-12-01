@@ -5,14 +5,14 @@ import aws from 'aws-sdk';
 import {injectable, inject} from 'tsyringe';
 import IMailProvider from "@shared/container/providers/MailProvider/model/IMailProviders";
 import ISendMailDTO from '../dtos/ISendMailDTO';
-import IMailTemplateProvider from '@shared/container/providers/MailProvider/MailTemplateProvider/models/IMailTemplateProvider';
+import IMailTemplateProvider from '@shared/container/providers/MailTemplateProvider/models/IMailTemplateProvider';
 
 @injectable()
 export default class EtherealMailProvider implements IMailProvider{
     private client: Transporter;
 
     constructor(
-        @inject('SESMailProvider')
+        @inject('MailTemplateProvider')
         private mailTemplateProvider: IMailTemplateProvider,
     )
     {

@@ -9,11 +9,12 @@ const sessionController = new SessionsController();
 sessionsRouter.post('/',
 celebrate({
     [ Segments.BODY]: {
-        token: Joi.string().email().required(),
+        email: Joi.string().email().required(),
         password: Joi.string().required(),
     },
 }),
-sessionController.create);
+sessionController.create,
+);
 
 
 

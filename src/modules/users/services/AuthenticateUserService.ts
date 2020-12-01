@@ -5,7 +5,8 @@ import {inject, injectable} from 'tsyringe';
 import IUsersRepository from '../repositories/IUsersRepository';
 import AppError from '@shared/errors/AppError';
 import User from '../infra/typeorm/entities/User';
-import IHashProvider from "../provider/HashProvider/models/IHashProvider";
+import IHashProvider from "../providers/HashProvider/models/IHashProvider";
+import { errors } from 'celebrate';
 
 
 interface IRequest {
@@ -21,7 +22,7 @@ class AuthenticateUserServive {
     constructor(
         @inject('UsersRepository')
     private usersRepository: IUsersRepository,
-    @inject('Hasprovider')
+    @inject('HashProvider')
     private hashProvider: IHashProvider,
     )
     {}

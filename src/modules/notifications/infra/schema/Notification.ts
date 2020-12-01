@@ -1,7 +1,12 @@
-import {ObjectID, Entity, Column, ObjectIdColumn,
-     CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+    Entity,
+    Column,
+    ObjectIdColumn,
+    CreateDateColumn,
+    UpdateDateColumn } from 'typeorm';
+ import {ObjectID} from 'mongodb';
 
-@Entity('notification')
+@Entity('notifications')
 class Notification {
     @ObjectIdColumn()
     id: ObjectID;

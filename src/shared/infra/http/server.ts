@@ -11,7 +11,7 @@ import routes from './routes';
 
 
 import '@shared/infra/typeorm';
-import '@shared/container/providers/StorageProvider';
+import '@shared/container'
 
 const app = express();
 
@@ -30,6 +30,7 @@ if (err instanceof AppError){
         message: err.message,
     })
 }
+console.log(err)
 });
 
 app.listen(3333, ()=>{
