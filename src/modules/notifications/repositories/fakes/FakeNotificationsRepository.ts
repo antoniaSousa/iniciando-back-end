@@ -5,7 +5,7 @@ import ICreateNotificationDTOS from '@modules/notifications/dtos/ICreateNotifica
 
 import Notification from '@modules/notifications/infra/schema/Notification';
 
-class NotificationRepository implements INotificationRepository{
+class NotificationsRepository implements INotificationRepository{
 
     private notification: Notification[] =[];
 
@@ -20,4 +20,4 @@ class NotificationRepository implements INotificationRepository{
     return notification;
 }
 }
-export default NotificationRepository;
+export default NotificationsRepository;
