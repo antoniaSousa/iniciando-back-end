@@ -30,7 +30,8 @@ celebrate({
         provider_id: Joi.string().uuid().required(),
     },
 }),
-providerDayAvailabilityController.index)
+providerDayAvailabilityController.index,
+);
 
 export default providersRouter;
 

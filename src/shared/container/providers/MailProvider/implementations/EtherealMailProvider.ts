@@ -3,7 +3,6 @@ import {injectable, inject} from 'tsyringe';
 import IMailTemplateProvider from '@shared/container/providers/MailTemplateProvider/models/IMailTemplateProvider';
 import IMailProvider from "@shared/container/providers/MailProvider/model/IMailProviders";
 import ISendMailDTO from '../dtos/ISendMailDTO';
-import { template } from 'handlebars';
 
 @injectable()
 export default class EtherealMailProvider implements IMailProvider{

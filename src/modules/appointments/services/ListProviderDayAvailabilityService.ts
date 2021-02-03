@@ -1,5 +1,5 @@
 import { injectable, inject } from 'tsyringe';
-import IAppoitmentsRepository from '../repositories/IAppointmentsRepository';
+import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 import { getHours, isAfter } from 'date-fns';
 
 
@@ -19,8 +19,8 @@ type IResponse = Array <{
 @injectable()
 class ListProviderDayAvailabilityService{
     constructor(
-        @inject ('ApponitmentsRepository')
-        private apponitmentsRepository: IAppoitmentsRepository
+        @inject ('AppointmentsRepository')
+        private appointmentsRepository: IAppointmentsRepository
 
         ){}
 
@@ -30,13 +30,13 @@ class ListProviderDayAvailabilityService{
         year,
         day,
         }: IRequest): Promise<IResponse>{
-            const appointments = await this.apponitmentsRepository.findAllInDayFromProvider(
+            const appointments = await this.appointmentsRepository.findAllInDayFromProvider(
                 {
                 provider_id,
                 year,
                 month,
                 day,
-            }
+            },
             );
             const hourStart = 8;
             const eachHourArray = Array.from(

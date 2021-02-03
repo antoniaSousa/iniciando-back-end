@@ -14,7 +14,7 @@ const providerAppointmentsController = new ProviderAppointmentsController();
 appointmentsRouter.use(ensureAuthenticated);
 
 appointmentsRouter.post('/', celebrate({
-    [ Segments.BODY]: {
+    [Segments.BODY]: {
         provider_id: Joi.string().uuid().required(),
         date: Joi.date()
     },

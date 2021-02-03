@@ -1,8 +1,5 @@
-import path from 'path';
-import { getRepository } from 'typeorm';
 import User from '../infra/typeorm/entities/User';
 import uploadConfig from '@config/upload';
-import fs from 'fs';
 import IUsersRepository from '../repositories/IUsersRepository';
 import AppError from '@shared/errors/AppError';
 import IStorageProvider from '@shared/container/providers/StorageProvider/models/StorageProvider';
@@ -12,6 +9,7 @@ interface IRequest{
     user_id: string;
     avatarFilename: string;
 }
+@injectable()
 class  UpdateUserAvatarService {
  constructor(
      @inject('UsersRepository')
